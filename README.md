@@ -1,5 +1,5 @@
 # Title of Project
-This web application is allows users to search breweries by inputing the location by state. Once selected, it should show the user some information about the brewery such as the name, contact info and address if provided.
+This web application allows users to search breweries. The page has a feature that allows users to filter by state. Once selected, it lists all breweris within that state as well as information about the brewery such as the name, contact info and address if provided. There is an 'add to favorites' for the user to set aside places they have visted and add comments. 
 
 # Requirements
 * have json-server installed
