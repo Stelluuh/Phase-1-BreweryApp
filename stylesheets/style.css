@@ -5,12 +5,13 @@
 }
 
 body{
-   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(../Images/josh-olalde-unsplash.jpg);
+   background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0, 0, 0, 0.3)), url(../Images/josh-olalde-unsplash.jpg);
    background-size: cover;
    background-repeat: no-repeat;
    height: 100vh;
 
 }
+
 
 .content{
    color: #fff;
@@ -20,4 +21,12 @@ body{
 .content h1{
    font-size: 70px;
    margin-top: 80px;
+}
+
+.footer{
+   color: #fff;
+}
+
+button{
+  font-size: 14px;
 }
