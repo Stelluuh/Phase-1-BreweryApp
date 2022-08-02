@@ -88,9 +88,9 @@ const toggleBreweries = (e) => {
    e.preventDefault();
    // console.log(e)
       if(breweryContent.hasChildNodes()){
-         displayBreweryList();
-      } else {
          removeBreweryList();
+      } else {
+         displayBreweryList();
       }
    }
 
