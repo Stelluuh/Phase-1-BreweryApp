@@ -1,6 +1,20 @@
-/*------------------VARIABLES------------------*/
+/*
+GOAL: 3 Event Listeners:
+1. mouseover that changes color of Breweries
+2a. click event on breweries to show information
+2b. Click event to toggle list of breweries: google "how to use toggle with a click event in javascript"
+3. submit event to search(filter) by state
+
+ASSESSMENT:
+1. Know concepts and quizzes.
+2. Explain your code
+3. Live Coding
+
+/*
+
+/*------------------CREATE VARIABLES------------------*/
 const h1 = document.createElement('h1')
-const p = document.createElement('p')
+const h4 = document.createElement('h4')
 const getData = [] //copy of API data
 
 /*------------------NODES------------------*/
@@ -14,12 +28,12 @@ const breweryContent = document.querySelector('.content')
 //1. function that when the page opens, it has all the html needed on the homepage.
 function initializeHomePage() {
    h1.innerHTML = 'Brewery Bound'   
-   p.innerHTML = 'Journey with us across the United States and check out our favorite small and independent breweries.'
+   h4.innerHTML = 'Journey with us across the United States and check out our favorite small and independent breweries.'
 
-   p.style.margintTop = "10px"
-   p.style.marginBottom = "10px"
+   h4.style.margintTop = "10px"
+   h4.style.marginBottom = "10px"
 
-   mainHeader.append(h1,p)
+   mainHeader.append(h1,h4)
 }
 
 //2. create a copy of the API data
@@ -33,19 +47,27 @@ function fetchandCopyData() {
 }
 
 //3. function that adds event listener to li (each brewery name)
+
+
+//4. Function that filters by state
+/* Example:
+function handleBreeds(e) {
+  let letter = e.target.value
+  let filterBreeds = breeds.filter((breed) => {
+    return breed[0] === letter;
+  });
+  console.log(filterBreeds)
+  ul.innerHTML = "";
+  renderDogBreeds(filterBreeds)
+}
+*/
    
-
-
-   //create an array of objects instead of fetch = under variables = getData
-   //know concepts and quizzes.
-   //explain your code
-
  
    
 
 /*------------------EVENT HANDLERS------------------*/
 //this takes in an event (because the event listener below calls this function)
-const renderList = (e) => {
+const renderBreweries = (e) => {
    e.preventDefault();
    // console.log(e)
    for(let item of getData) {
@@ -53,11 +75,9 @@ const renderList = (e) => {
       const li = document.createElement('li')
       li.innerText = item.name
       li.style.marginTop = "10px";
+      
       breweryContent.appendChild(li)
    }
-   
-   // getData.forEach(element => )
-   
 }
 
 
@@ -66,20 +86,16 @@ const renderList = (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
    initializeHomePage(); //loads page with all html content
-   breweryList(); //function with event listener 'click'
+   breweryList; //function with event listener 'click'
    fetchandCopyData(); //copy of API data
 })
 
-const breweryList = () => breweryButton.addEventListener('click', renderList)
+const breweryList =  breweryButton.addEventListener('click', renderBreweries)
 
 
 
 
-//1. mouseover that changes color of buttons
 
-//2. click event on the buttons
-
-//3. submit event to search by state
  
 //click on list of breweries
 //when: DOMContentLoaded
