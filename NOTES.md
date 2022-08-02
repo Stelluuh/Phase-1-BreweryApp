@@ -9,11 +9,10 @@
 * Add notes on breweries (Submit - form)
 
 # MVP - Minimum Viable Product 
-* Lists all breweries by name(DOMContentLoaded)
-* Add a filter to choose by state (.filter instead of .find)
-* Add to favorites (Click - button (img of beer clink))
-* Add notes on breweries (Submit event, form tag with button)
-* Delete button to remove from favorites
+* Button that lists all breweries by name(DOMContentLoaded, 'click')
+* Add a filter to choose by state (.filter instead of .find, 'submit')
+* Hover over Breweries to show brewery info ('mouseover')
+
 
 
 

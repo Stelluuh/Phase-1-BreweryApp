@@ -9,16 +9,17 @@ body{
    background-size: cover;
    background-repeat: no-repeat;
    height: 100vh;
+   color: #fff;
 
 }
 
 
-.content{
+.header{
    color: #fff;
    text-align: center;
 }
 
-.content h1{
+.header h1{
    font-size: 70px;
    margin-top: 80px;
 }
@@ -27,6 +28,3 @@ body{
    color: #fff;
 }
 
-button{
-  font-size: 14px;
-}
