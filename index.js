@@ -46,6 +46,23 @@ function fetchandCopyData() {
    })
 }
 
+//Function that displays breweries
+function displayBreweryList() {
+   for(item of getData){
+      const li = document.createElement('li')
+      li.innerText = item.name
+      li.style.marginTop = "10px";
+      breweryContent.appendChild(li)
+   }
+}
+
+function removeBreweryList(){
+   breweryContent.innerHTML = ""
+}
+
+
+//Function that removes breweries
+
 //3. function that adds event listener to li (each brewery name)
 
 
@@ -67,18 +84,16 @@ function handleBreeds(e) {
 
 /*------------------EVENT HANDLERS------------------*/
 //this takes in an event (because the event listener below calls this function)
-const renderBreweries = (e) => {
+const toggleBreweries = (e) => {
    e.preventDefault();
    // console.log(e)
-   for(let item of getData) {
-      console.log('item.name: ', item.name)
-      const li = document.createElement('li')
-      li.innerText = item.name
-      li.style.marginTop = "10px";
-      
-      breweryContent.appendChild(li)
+      if(breweryContent.hasChildNodes()){
+         displayBreweryList();
+      } else {
+         removeBreweryList();
+      }
    }
-}
+
 
 
 
@@ -90,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
    fetchandCopyData(); //copy of API data
 })
 
-const breweryList =  breweryButton.addEventListener('click', renderBreweries)
+const breweryList =  breweryButton.addEventListener('click', toggleBreweries)
 
 
 
