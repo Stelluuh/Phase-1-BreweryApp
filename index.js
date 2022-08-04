@@ -21,6 +21,8 @@ const getData = [] //copy of API data
 const mainHeader = document.querySelector('#main-heading')
 const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
+const list = document.querySelector('.list')
+
 
 
 /*------------------FUNCTIONS------------------*/
@@ -50,6 +52,8 @@ function fetchandCopyData() {
 function displayBreweryList() {
    for(item of getData){
       const li = document.createElement('li')
+      li.className = 'list'
+   
       li.innerText = item.name
       li.style.marginTop = "10px";
       breweryContent.appendChild(li)
@@ -61,9 +65,10 @@ function removeBreweryList(){
 }
 
 
-//Function that removes breweries
+
 
 //3. function that adds event listener to li (each brewery name)
+
 
 
 //4. Function that filters by state
@@ -84,28 +89,47 @@ function handleBreeds(e) {
 
 /*------------------EVENT HANDLERS------------------*/
 //this takes in an event (because the event listener below calls this function)
-const toggleBreweries = (e) => {
-   e.preventDefault();
+function toggleBreweries(e) {
+   e.preventDefault()
    // console.log(e)
-      if(breweryContent.hasChildNodes()){
-         removeBreweryList();
-      } else {
-         displayBreweryList();
-      }
+   if (breweryContent.hasChildNodes()) {
+      removeBreweryList()
+   } else {
+      displayBreweryList()
    }
+}
 
-
+// const highligher = (e) => {
+//    e.preventDefault();
+//    addHighlight();
+//    // removeHighlight();
+// }
+ 
 
 
 /*------------------EVENT LISTENERS------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
    initializeHomePage(); //loads page with all html content
-   breweryList; //function with event listener 'click'
    fetchandCopyData(); //copy of API data
+   breweryList(); //function with event listener 'click'
+   selectList();
 })
 
-const breweryList =  breweryButton.addEventListener('click', toggleBreweries)
+const breweryList = () => breweryButton.addEventListener('click', toggleBreweries)
+
+breweryButton.addEventListener('mouseover', () => {
+   breweryButton.setAttribute('style', 'background-color: transparent')
+})
+
+breweryButton.addEventListener('mouseout', () => {
+   breweryButton.setAttribute('style', 'background-color: #FCF8EC')
+})
+
+// const selectList = () => breweryButton.addEventListener('mouseover', addHighlight())
+
+// const deselectList = () => breweryButton.addEventListener('mouseleave', highligher)
+
 
 
 
@@ -139,5 +163,3 @@ const breweryList =  breweryButton.addEventListener('click', toggleBreweries)
 //  A) on page load, fetches the list of brewries using API url.
 //  B) parses the response as JSON
 //  C) adds list to the DOM for each 🤔 brewery in the array.
-
-
