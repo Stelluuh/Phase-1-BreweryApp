@@ -99,13 +99,6 @@ function toggleBreweries(e) {
    }
 }
 
-// const highligher = (e) => {
-//    e.preventDefault();
-//    addHighlight();
-//    // removeHighlight();
-// }
- 
-
 
 /*------------------EVENT LISTENERS------------------*/
 
