@@ -8,6 +8,7 @@ body{
    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0, 0, 0, 0.3)), url(../Images/josh-olalde-unsplash.jpg);
    background-size: cover;
    background-repeat: no-repeat;
+   background-attachment: fixed; /* keeps background image steady during scroll*/
    height: 100vh;
    color: #fff;
 
@@ -21,7 +22,7 @@ body{
 
 .header h1{
    font-size: 70px;
-   margin-top: 80px;
+   margin-top: 20px;
 }
 
 .footer{
@@ -39,4 +40,23 @@ body{
    background-color: #FCF8EC;
    font-size: 15px;
    color: black;  
+   letter-spacing: .35rem;
+   margin: auto;
+}
+
+
+.search-wrapper {
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   gap: 0.25rem;
+}
+
+input{
+   font-size: 1.3rem;
+   margin: auto;
+}
+
+.content{
+   text-align: center;
 }

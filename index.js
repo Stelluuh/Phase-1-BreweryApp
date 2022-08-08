@@ -22,6 +22,7 @@ const mainHeader = document.querySelector('#main-heading')
 const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
 const list = document.querySelector('.list')
+const submitButton = document.querySelector('#submit-btn')
 
 
 
@@ -99,6 +100,13 @@ function toggleBreweries(e) {
    }
 }
 
+// const highligher = (e) => {
+//    e.preventDefault();
+//    addHighlight();
+//    // removeHighlight();
+// }
+ 
+
 
 /*------------------EVENT LISTENERS------------------*/
 
@@ -112,10 +120,18 @@ document.addEventListener('DOMContentLoaded', () => {
 const breweryList = () => breweryButton.addEventListener('click', toggleBreweries)
 
 breweryButton.addEventListener('mouseover', () => {
-   breweryButton.setAttribute('style', 'background-color: transparent')
+   breweryButton.setAttribute('style', 'background-color: #EC994B')
 })
 
 breweryButton.addEventListener('mouseout', () => {
+   breweryButton.setAttribute('style', 'background-color: #FCF8EC')
+})
+
+submitButton.addEventListener('mouseover', () => {
+   breweryButton.setAttribute('style', 'background-color: #EC994B')
+})
+
+submitButton.addEventListener('mouseout', () => {
    breweryButton.setAttribute('style', 'background-color: #FCF8EC')
 })
 
