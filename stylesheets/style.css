@@ -61,6 +61,7 @@ input{
 .content{
    text-align: center;
    font-size: 1.2rem;
+   columns: 2
 }
 
 .table{

@@ -16,6 +16,7 @@ ASSESSMENT:
 const h1 = document.createElement('h1')
 const h4 = document.createElement('h4')
 const getData = [] //copy of API data
+let filterBrewery = []
 
 /*------------------NODES------------------*/
 const mainHeader = document.querySelector('#main-heading')
@@ -23,6 +24,7 @@ const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
 const list = document.querySelectorAll('li')
 const submitButton = document.querySelector('#submit-btn')
+const searchInput = document.querySelector('#search-input')
 
 
 
@@ -82,8 +84,8 @@ function removeBreweryList(){
 
 //3. Function that filters by state
 /* Example:
-function handleBreeds(e) {
-  let letter = e.target.value
+function handleBrewries(e) {
+  let letter = e.target
   let filterBreeds = breeds.filter((breed) => {
     return breed[0] === letter;
   });
@@ -91,17 +93,6 @@ function handleBreeds(e) {
   ul.innerHTML = "";
   renderDogBreeds(filterBreeds)
 }
-
-//4. Leave comments on my gameplay, such as: "Wow, what a fun game this is."
-commentForm.addEventListener('submit', (e) =>{
-  e.preventDefault();
-  let ul = document.createElement('ul')
-  ul.textContent = e.target[0].value
-  list.append(ul)
-  commentInput.value = ""
-})
-*/
-   
    
 
 /*------------------EVENT HANDLERS------------------*/
@@ -143,6 +134,10 @@ breweryButton.addEventListener('mouseout', (e) => {
    e.target.setAttribute('style', 'background-color: #FCF8EC')
 })
 
+searchInput.addEventListener('input', (e) =>{
+   const value = e.target.value
+   console.log(value)
+})
 
 
 
