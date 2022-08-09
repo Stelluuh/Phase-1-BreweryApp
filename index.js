@@ -21,7 +21,7 @@ const getData = [] //copy of API data
 const mainHeader = document.querySelector('#main-heading')
 const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
-const list = document.querySelector('.list')
+const list = document.querySelectorAll('li')
 const submitButton = document.querySelector('#submit-btn')
 
 
@@ -45,18 +45,31 @@ function fetchandCopyData() {
    .then(resp=>(resp.json()))
    .then(data => {
       // console.log(data)
-      data.map(element => getData.push(element))
+      data.map(element => getData.push({
+            name: element.name,
+            state: element.state,
+            phone: element.phone
+         })
+      )
    })
 }
 
-//Function that displays breweries
+
+
+//Function that displays brewery NAME and STATE
 function displayBreweryList() {
    for(item of getData){
+
       const li = document.createElement('li')
       li.className = 'list'
-   
       li.innerText = item.name
       li.style.marginTop = "10px";
+
+      const h5 = document.createElement('h5')
+      h5.className = 'state-list'
+      h5.innerText = `State: ${item.state}`
+      
+      li.appendChild(h5)
       breweryContent.appendChild(li)
    }
 }
@@ -67,12 +80,7 @@ function removeBreweryList(){
 
 
 
-
-//3. function that adds event listener to li (each brewery name)
-
-
-
-//4. Function that filters by state
+//3. Function that filters by state
 /* Example:
 function handleBreeds(e) {
   let letter = e.target.value
@@ -83,9 +91,17 @@ function handleBreeds(e) {
   ul.innerHTML = "";
   renderDogBreeds(filterBreeds)
 }
+
+//4. Leave comments on my gameplay, such as: "Wow, what a fun game this is."
+commentForm.addEventListener('submit', (e) =>{
+  e.preventDefault();
+  let ul = document.createElement('ul')
+  ul.textContent = e.target[0].value
+  list.append(ul)
+  commentInput.value = ""
+})
 */
    
- 
    
 
 /*------------------EVENT HANDLERS------------------*/
@@ -112,32 +128,20 @@ function toggleBreweries(e) {
 
 document.addEventListener('DOMContentLoaded', () => {
    initializeHomePage(); //loads page with all html content
+   breweryList(); //function with event listener 'click' that shows a list of breweries
    fetchandCopyData(); //copy of API data
-   breweryList(); //function with event listener 'click'
-   selectList();
 })
 
 const breweryList = () => breweryButton.addEventListener('click', toggleBreweries)
 
-breweryButton.addEventListener('mouseover', () => {
-   breweryButton.setAttribute('style', 'background-color: #EC994B')
+breweryButton.addEventListener('mouseover', (e) => {
+   // console.log(e.target)
+   e.target.setAttribute('style', 'background-color: #EC994B')
 })
 
-breweryButton.addEventListener('mouseout', () => {
-   breweryButton.setAttribute('style', 'background-color: #FCF8EC')
+breweryButton.addEventListener('mouseout', (e) => {
+   e.target.setAttribute('style', 'background-color: #FCF8EC')
 })
-
-submitButton.addEventListener('mouseover', () => {
-   breweryButton.setAttribute('style', 'background-color: #EC994B')
-})
-
-submitButton.addEventListener('mouseout', () => {
-   breweryButton.setAttribute('style', 'background-color: #FCF8EC')
-})
-
-// const selectList = () => breweryButton.addEventListener('mouseover', addHighlight())
-
-// const deselectList = () => breweryButton.addEventListener('mouseleave', highligher)
 
 
 
