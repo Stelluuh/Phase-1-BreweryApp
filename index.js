@@ -24,6 +24,8 @@ const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
 // const list = document.querySelectorAll('li')
 const searchInput = document.querySelector('#search-input')
+const card = document.querySelector('.card')
+
 
 
 
@@ -60,7 +62,9 @@ function fetchandCopyData() {
 //Function that displays brewery NAME and STATE
 function displayBreweryList() {
    for(item of getData){
-
+      const div = document.createElement('div')
+      div.className = `${item.state}`
+      
       const li = document.createElement('li')
       li.className = 'list'
       li.innerText = item.name
@@ -72,7 +76,9 @@ function displayBreweryList() {
       h5.style.color = '#FFD59E'
       
       li.appendChild(h5)
-      breweryContent.appendChild(li)
+      div.appendChild(li)
+      breweryContent.appendChild(div)
+      
    }
 }
 
