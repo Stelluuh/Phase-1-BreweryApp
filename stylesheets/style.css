@@ -63,13 +63,3 @@ input{
    font-size: 1.2rem;
    columns: 2
 }
-
-.table{
-   border-spacing: 2rem;
-}
-
-td{
-   width: 250px;
-   height: 30px;
-   text-align: center;
-}

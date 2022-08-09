@@ -22,8 +22,7 @@ let filterBrewery = []
 const mainHeader = document.querySelector('#main-heading')
 const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
-const list = document.querySelectorAll('li')
-const submitButton = document.querySelector('#submit-btn')
+// const list = document.querySelectorAll('li')
 const searchInput = document.querySelector('#search-input')
 
 
@@ -70,6 +69,7 @@ function displayBreweryList() {
       const h5 = document.createElement('h5')
       h5.className = 'state-list'
       h5.innerText = `State: ${item.state}`
+      h5.style.color = '#FFD59E'
       
       li.appendChild(h5)
       breweryContent.appendChild(li)
@@ -107,23 +107,25 @@ function toggleBreweries(e) {
    }
 }
 
-// const highligher = (e) => {
-//    e.preventDefault();
-//    addHighlight();
-//    // removeHighlight();
-// }
- 
+function searchByState(e) {
+   e.preventDefault()
+   const value = e.target.value
+   console.log(value)
+}
 
 
 /*------------------EVENT LISTENERS------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
    initializeHomePage(); //loads page with all html content
-   breweryList(); //function with event listener 'click' that shows a list of breweries
    fetchandCopyData(); //copy of API data
+   allBreweries(); //function with event listener 'click' that shows a list of breweries
+   filterBreweries(); //function that lists breweries based on your search input
 })
 
-const breweryList = () => breweryButton.addEventListener('click', toggleBreweries)
+const allBreweries = () => breweryButton.addEventListener('click', toggleBreweries)
+
+const filterBreweries = () => searchInput.addEventListener('input', searchByState)
 
 breweryButton.addEventListener('mouseover', (e) => {
    // console.log(e.target)
@@ -134,10 +136,6 @@ breweryButton.addEventListener('mouseout', (e) => {
    e.target.setAttribute('style', 'background-color: #FCF8EC')
 })
 
-searchInput.addEventListener('input', (e) =>{
-   const value = e.target.value
-   console.log(value)
-})
 
 
 
