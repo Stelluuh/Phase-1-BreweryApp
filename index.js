@@ -27,6 +27,8 @@ const bottomContainer = document.querySelector('.bottom-container')
 const form = document.querySelector('form')
 const state = document.querySelector('#state')
 const submitButton = document.querySelector('#submit-btn')
+const allButtons = document.querySelectorAll('.button')
+console.log(allButtons)
 
 
 
@@ -34,6 +36,7 @@ const submitButton = document.querySelector('#submit-btn')
 
 //1. function that when the page opens, it has all the html needed on the homepage.
 function initializeHomePage() {
+   bottomContainer.style.display = 'none'
    h1.innerHTML = 'Brewery Bound'   
    h4.innerHTML = 'Journey with us across the United States and check out our favorite small and independent breweries.'
 
@@ -41,6 +44,7 @@ function initializeHomePage() {
    h4.style.marginBottom = "10px"
 
    topContainer.append(h1,h4)
+
 }
 
 //2. create a copy of the API data
@@ -52,7 +56,8 @@ function fetchandCopyData() {
       data.map(element => getData.push({
             name: element.name,
             state: element.state,
-            phone: element.phone
+            phone: element.phone,
+            website: element.website_url
          })
       )
    })
@@ -64,24 +69,30 @@ function fetchandCopyData() {
 function displayBreweryList() {
    for(item of getData){
       const div = document.createElement('div')
-      div.className = `${item.state}`
+      div.className = `${item.name}`
       
       const li = document.createElement('li')
       li.className = 'list'
       li.innerText = item.name
 
+
       const h5 = document.createElement('h5')
       h5.className = 'state-list'
       h5.innerText = `State: ${item.state}`
+
+      const h6 = document.createElement('h6')
+      h6.innerText = `phone#: ${item.phone}`
       
-      li.appendChild(h5)
+      li.appendChild(h5, h6)
       div.appendChild(li)
       breweryContent.appendChild(div)
+      bottomContainer.style.display = 'block'
    }
 }
 
 function removeBreweryList(){
    breweryContent.innerHTML = ""
+   bottomContainer.style.display = 'none'
 }
 
 // function handleSubmit{
@@ -110,7 +121,7 @@ function handleMyList(addBrewery) {
     
     li.textContent = `${addBrewery} `
     h5.textContent = `State: ${state.value}`
-    btn.textContent = 'x'
+   //  btn.textContent = 'x'
 
     
     li.appendChild(h5)
@@ -132,8 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const allBreweries = () => breweryButton.addEventListener('click', toggleBreweries)
 
-
-
 breweryButton.addEventListener('mouseover', (e) => {
    // console.log(e.target)
    e.target.setAttribute('style', 'background-color: #EC994B')
@@ -143,17 +152,25 @@ breweryButton.addEventListener('mouseout', (e) => {
    e.target.setAttribute('style', 'background-color: #FCF8EC')
 })
 
-submitButton.addEventListener('mouseover', (e) => {
-   // console.log(e.target)
-   e.target.setAttribute('style', 'background-color: #EC994B')
-})
+// submitButton.addEventListener('mouseover', (e) => {
+//       // console.log(e.target)
+//    e.target.setAttribute('style', 'background-color: #EC994B')
+// })
 
-submitButton.addEventListener('mouseout', (e) => {
-   e.target.setAttribute('style', 'background-color: #FCF8EC')
-})
+// submitButton.addEventListener('mouseout', (e) => {
+//    e.target.setAttribute('style', 'background-color: #FCF8EC')
+// })
 
+// allButtons.forEach(element => element.addEventListener('mouseout', (e) => {
+//    e.target.setAttribute('style', 'background-color: #FCF8EC')
+// }))
+
+// allButtons.forEach(element => element.addEventListener('mouseout', (e) => {
+//    e.target.setAttribute('style', 'background-color: #FCF8EC')
+// }))
 
 form.addEventListener('submit', (e) => {
    e.preventDefault()
-   handleMyList(e.target.new_brewery.value)
+   let textValue = e.target.new_brewery.value
+   handleMyList(textValue)
 });
