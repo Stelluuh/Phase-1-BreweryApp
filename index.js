@@ -72,12 +72,10 @@ function displayBreweryList() {
       const li = document.createElement('li')
       li.className = 'list'
       li.innerText = item.name
-      li.style.marginTop = "10px";
 
       const h5 = document.createElement('h5')
       h5.className = 'state-list'
       h5.innerText = `State: ${item.state}`
-      h5.style.color = '#FFD59E'
       
       li.appendChild(h5)
       div.appendChild(li)
@@ -152,11 +150,11 @@ function handleMyList(myList) {
     let btn = document.createElement('button')
     
     li.textContent = `${myList} `
-    h5.textContent = state.value
+    h5.textContent = `State: ${state.value}`
     btn.textContent = 'x'
 
-    li.appendChild(h5)
-    breweryContent.appendChild(li, btn)
+    li.appendChild(h5, btn)
+    breweryContent.appendChild(li)
    }
 
 // const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
