@@ -6,11 +6,10 @@
 * Search by typing Brewery Name or Search by State (DOMContentLoaded, Submit Form)
 * Hover over buttons to show contact information (mouseover)
 * Add to favorites (Click - button)
-* Add notes on breweries (Submit - form)
+* Add breweries to the list (Submit - form)
 
 # MVP - Minimum Viable Product 
 * Button that lists all breweries by name(DOMContentLoaded, 'click')
-* Add a filter to choose by state (.filter instead of .find, 'submit')
 * Hover over Breweries to show brewery info ('mouseover')
 
 

@@ -33,11 +33,21 @@ h5{
    
 }
 
-.button{
+#list-btn{
    padding: 10px;
    border-radius: 15px;
    background-color: #FCF8EC;
    font-size: 1rem;
+   color: black;  
+   letter-spacing: .35rem;
+   margin: auto;
+}
+
+#submit-btn{
+   padding: 5px;
+   border-radius: 15px;
+   background-color: #FCF8EC;
+   font-size: 16px;
    color: black;  
    letter-spacing: .35rem;
    margin: auto;
@@ -62,13 +72,17 @@ h5{
 }
 
 .content{
-   min-height: 500px;
+   min-height: 400px;
+   margin: auto;
+   padding-bottom: 10px;
+   text-align: center;
+   font-size: 1.2rem;
+   columns: 2;
 }
 
 .bottom-container {
    text-align: center;
    gap: 0.25rem;
-   position: relative;
    height: 50px;
    bottom: 0px;
    left: 0px;
@@ -86,14 +100,6 @@ select{
    width: 150px;
    height: 23px;
    border-radius: 3px;
-}
-
-
-.content{
-   text-align: center;
-   font-size: 1.2rem;
-   columns: 2;
-   ;
 }
 
 
