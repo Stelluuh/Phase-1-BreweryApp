@@ -25,6 +25,7 @@ const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
 // const list = document.querySelectorAll('li')
 const searchInput = document.querySelector('#search-input')
+const form = document.querySelector('form')
 
 
 
@@ -89,17 +90,7 @@ function removeBreweryList(){
 
 
 
-//3. Function that filters by state
-/* Example:
-function handleBrewries(e) {
-  let letter = e.target
-  let filterBreeds = breeds.filter((breed) => {
-    return breed[0] === letter;
-  });
-  console.log(filterBreeds)
-  ul.innerHTML = "";
-  renderDogBreeds(filterBreeds)
-}
+
    
 
 /*------------------EVENT HANDLERS------------------*/
@@ -115,15 +106,15 @@ function toggleBreweries(e) {
 }
 
 //I want to be able to loop through our breweries and hide the ones that dont match the state that is typed into the input.
-function searchByState(e) {
-   e.preventDefault()
-   const value = e.target.value.toLowerCase()
-   console.log(value)
-   getData.forEach(brewery => {
-      const isVisible = brewery.state.toLowerCase().includes(value)
-      console.log(isVisible)
-   })
-}
+// function searchByState(e) {
+//    e.preventDefault()
+//    const value = e.target.value.toLowerCase()
+//    console.log(value)
+//    getData.forEach(brewery => {
+//       const isVisible = brewery.state.toLowerCase().includes(value)
+//       console.log(isVisible)
+//    })
+// }
 
 
 /*------------------EVENT LISTENERS------------------*/
@@ -132,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
    initializeHomePage(); //loads page with all html content
    fetchandCopyData(); //copy of API data
    allBreweries(); //function with event listener 'click' that shows a list of breweries
-   filterBreweries(); //function that lists breweries based on your search input
+   // filterBreweries(); //function that lists breweries based on your search input
 })
 
 const allBreweries = () => breweryButton.addEventListener('click', toggleBreweries)
@@ -147,35 +138,9 @@ breweryButton.addEventListener('mouseout', (e) => {
    e.target.setAttribute('style', 'background-color: #FCF8EC')
 })
 
+form.addEventListener('submit', (e) => {
+   console.log(e)
+})
 
-const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
+// const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
 
-
-//click on list of breweries
-//when: DOMContentLoaded
-//Cause: Click Event
-//Effect: show list of breweries
-// fetch('https://api.openbrewerydb.org/breweries')
-// .then(resp=>(resp.json()))
-// .then(data => data.forEach(element => {
-   //    console.log(element)
-   //    const brewery = element.name
-//    const li = document.createElement('li');
-   
-
-//    li.innerText = brewery
-//    mainContainer().append(li)
-
-// }))
-
-//search by state - if a brewery exists in the state submitted, display brewery. If not, show "No breweries found in this state"
-
-// Add JavaScript that:
-//  A) on page load, fetches the list of brewries using API url.
-//  B) parses the response as JSON
-//  C) adds list to the DOM for each 🤔 brewery in the array.
-
-
-//create an array of objects instead of fetch.
-//know concepts and quizzes.
-//explain your code
