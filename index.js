@@ -1,8 +1,9 @@
 /*
 GOAL: 3 Event Listeners:
 1. mouseover that changes color of Breweries
-2a. click event on breweries to show information
-2b. Click event to toggle list of breweries: google "how to use toggle with a click event in javascript"
+2. mouseout that changes back to original color
+3a. click event on breweries to show information
+3b. Click event to toggle list of breweries: google "how to use toggle with a click event in javascript"
 3. submit event to search(filter) by state
 
 ASSESSMENT:
@@ -24,7 +25,7 @@ const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
 // const list = document.querySelectorAll('li')
 const searchInput = document.querySelector('#search-input')
-const card = document.querySelector('.card')
+
 
 
 
@@ -47,7 +48,7 @@ function fetchandCopyData() {
    fetch('https://api.openbrewerydb.org/breweries')
    .then(resp=>(resp.json()))
    .then(data => {
-      // console.log(data)
+      console.log(data)
       data.map(element => getData.push({
             name: element.name,
             state: element.state,
@@ -116,8 +117,12 @@ function toggleBreweries(e) {
 //I want to be able to loop through our breweries and hide the ones that dont match the state that is typed into the input.
 function searchByState(e) {
    e.preventDefault()
-   const value = e.target.value
+   const value = e.target.value.toLowerCase()
    console.log(value)
+   getData.forEach(brewery => {
+      const isVisible = brewery.state.toLowerCase().includes(value)
+      console.log(isVisible)
+   })
 }
 
 
@@ -132,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const allBreweries = () => breweryButton.addEventListener('click', toggleBreweries)
 
-const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
 
 breweryButton.addEventListener('mouseover', (e) => {
    // console.log(e.target)
@@ -144,11 +148,9 @@ breweryButton.addEventListener('mouseout', (e) => {
 })
 
 
+const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
 
 
-
-
- 
 //click on list of breweries
 //when: DOMContentLoaded
 //Cause: Click Event
@@ -160,10 +162,6 @@ breweryButton.addEventListener('mouseout', (e) => {
    //    const brewery = element.name
 //    const li = document.createElement('li');
    
-//    //create an array of objects instead of fetch.
-//    //know concepts and quizzes.
-//    //explain your code
-//    //
 
 //    li.innerText = brewery
 //    mainContainer().append(li)
@@ -176,3 +174,8 @@ breweryButton.addEventListener('mouseout', (e) => {
 //  A) on page load, fetches the list of brewries using API url.
 //  B) parses the response as JSON
 //  C) adds list to the DOM for each 🤔 brewery in the array.
+
+
+//create an array of objects instead of fetch.
+//know concepts and quizzes.
+//explain your code

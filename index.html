@@ -12,13 +12,25 @@
 <body>
    <div id="main-heading" class="header"></div>
    
+   <div class = "form-container">
+      <div id = 'top3'>
+         <h3>My Top 3</h3>
+         <form id="top3-form">
+            <div class = "field">
+               <input id = "MyList" type="text" placeholder="Add Brewery">
+            </div>
+         </form>
+      </div>
+   </div>
+
    <div class="search-wrapper">
-      <label for="search">Search By State</label>
-      <input type="search" id = "search-input">
+      <!-- <label for="search">Search By State</label>
+      <input type="search" id = "search-input"> -->
       <button id="list-btn">Show Breweries</button>
    </div>
    
    <div class = 'content'></div>
+
    <script src="index.js"></script>
 </body>
 </html>
