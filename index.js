@@ -139,7 +139,8 @@ breweryButton.addEventListener('mouseout', (e) => {
 })
 
 form.addEventListener('submit', (e) => {
-   console.log(e)
+   e.preventDefault()
+   console.log(e.target.my_list.value)
 })
 
 // const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
