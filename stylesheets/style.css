@@ -23,15 +23,6 @@ h5{
 }
 
 
-.header{
-   color: #fff;
-   text-align: center;
-}
-
-.header h1{
-   font-size: 70px;
-   margin-top: 20px;
-}
 
 .footer{
    color: #fff;
@@ -52,12 +43,42 @@ h5{
    margin: auto;
 }
 
+#submit-btn{
+   padding: 10px;
+   border-radius: 15px;
+   background-color: #FCF8EC;
+   font-size: 1rem;
+   color: black;  
+   letter-spacing: .35rem;
+   margin: auto;
+}
 
-.search-wrapper {
+.top-container{
+   color: #fff;
+   text-align: center;
+}
+
+.top-container h1{
+   font-size: 70px;
+   margin-top: 20px;
+}
+
+.middle-container {
    text-align: center;
    display: flex;
    flex-direction: column;
    gap: 0.25rem;
+}
+
+.bottom-container {
+   text-align: center;
+   gap: 0.25rem;
+   position: fixed;
+   height: 50px;
+   bottom: 0px;
+   left: 0px;
+   right: 0px;
+   margin-bottom: 25px;
 }
 
 input{
@@ -66,9 +87,18 @@ input{
    text-align: center;
 }
 
+select{
+   width: 150px;
+   height: 23px;
+   border-radius: 3px;
+}
+
+
 .content{
    text-align: center;
    font-size: 1.2rem;
    columns: 2;
    ;
 }
+
+

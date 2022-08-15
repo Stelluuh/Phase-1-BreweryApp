@@ -20,16 +20,13 @@ const getData = [] //copy of API data
 let filterBrewery = []
 
 /*------------------NODES------------------*/
-const mainHeader = document.querySelector('#main-heading')
+const topContainer = document.querySelector('.top-container')
 const breweryButton = document.querySelector('#list-btn')
 const breweryContent = document.querySelector('.content')
-// const list = document.querySelectorAll('li')
-const searchInput = document.querySelector('#search-input')
+const bottomContainer = document.querySelector('.bottom-container')
 const form = document.querySelector('form')
-const formContent = document.querySelector('#form-content')
 const state = document.querySelector('#state')
-
-
+const submitButton = document.querySelector('#submit-btn')
 
 
 
@@ -43,7 +40,7 @@ function initializeHomePage() {
    h4.style.margintTop = "10px"
    h4.style.marginBottom = "10px"
 
-   mainHeader.append(h1,h4)
+   topContainer.append(h1,h4)
 }
 
 //2. create a copy of the API data
@@ -80,7 +77,6 @@ function displayBreweryList() {
       li.appendChild(h5)
       div.appendChild(li)
       breweryContent.appendChild(div)
-      
    }
 }
 
@@ -88,10 +84,11 @@ function removeBreweryList(){
    breweryContent.innerHTML = ""
 }
 
-
-
-
+// function handleSubmit{
    
+// }
+
+
 
 /*------------------EVENT HANDLERS------------------*/
 //this takes in an event (because the event listener below calls this function)
@@ -105,17 +102,23 @@ function toggleBreweries(e) {
    }
 }
 
+function handleMyList(addBrewery) {
+    let li = document.createElement('li')
+    let h5 = document.createElement('h5')
+    let div = document.createElement('div')
+    div.className = `${item.state}`
+    
+    li.textContent = `${addBrewery} `
+    h5.textContent = `State: ${state.value}`
+    btn.textContent = 'x'
 
-//I want to be able to loop through our breweries and hide the ones that dont match the state that is typed into the input.
-// function searchByState(e) {
-//    e.preventDefault()
-//    const value = e.target.value.toLowerCase()
-//    console.log(value)
-//    getData.forEach(brewery => {
-//       const isVisible = brewery.state.toLowerCase().includes(value)
-//       console.log(isVisible)
-//    })
-// }
+    
+    li.appendChild(h5)
+    div.appendChild(li)
+    breweryContent.appendChild(div)
+   }
+
+
 
 
 /*------------------EVENT LISTENERS------------------*/
@@ -124,10 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
    initializeHomePage(); //loads page with all html content
    fetchandCopyData(); //copy of API data
    allBreweries(); //function with event listener 'click' that shows a list of breweries
-   // filterBreweries(); //function that lists breweries based on your search input
+  
 })
 
 const allBreweries = () => breweryButton.addEventListener('click', toggleBreweries)
+
 
 
 breweryButton.addEventListener('mouseover', (e) => {
@@ -139,23 +143,17 @@ breweryButton.addEventListener('mouseout', (e) => {
    e.target.setAttribute('style', 'background-color: #FCF8EC')
 })
 
+submitButton.addEventListener('mouseover', (e) => {
+   // console.log(e.target)
+   e.target.setAttribute('style', 'background-color: #EC994B')
+})
+
+submitButton.addEventListener('mouseout', (e) => {
+   e.target.setAttribute('style', 'background-color: #FCF8EC')
+})
+
+
 form.addEventListener('submit', (e) => {
    e.preventDefault()
    handleMyList(e.target.new_brewery.value)
-})
-
-function handleMyList(myList) {
-    let li = document.createElement('li')
-    let h5 = document.createElement('h5')
-    let btn = document.createElement('button')
-    
-    li.textContent = `${myList} `
-    h5.textContent = `State: ${state.value}`
-    btn.textContent = 'x'
-
-    li.appendChild(h5, btn)
-    breweryContent.appendChild(li)
-   }
-
-// const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
-
+});
