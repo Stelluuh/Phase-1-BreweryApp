@@ -11,6 +11,9 @@ This web application allows users to search breweries around the United States. 
    run json server for db.json
    open index.html in the browser
 
+# Resources
+1. used to copy list of states for select, option feature: https://www.hscripts.com/scripts/JavaScript/option/usa-states.php
+2. Background image: https://unsplash.com/s/photos/craft-beer/josh-olalde--Ygu9Qx309s-unsplash
 
 
 
