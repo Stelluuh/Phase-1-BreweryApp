@@ -27,6 +27,7 @@ const breweryContent = document.querySelector('.content')
 const searchInput = document.querySelector('#search-input')
 const form = document.querySelector('form')
 const formContent = document.querySelector('#form-content')
+const state = document.querySelector('#state')
 
 
 
@@ -142,14 +143,21 @@ breweryButton.addEventListener('mouseout', (e) => {
 
 form.addEventListener('submit', (e) => {
    e.preventDefault()
-   handleMyList(e.target.my_list.value)
+   handleMyList(e.target.new_brewery.value)
 })
 
 function handleMyList(myList) {
-    let p = document.createElement('p')
-    p.textContent = myList
-    formContent.appendChild(p)
-}
+    let li = document.createElement('li')
+    let h5 = document.createElement('h5')
+    let btn = document.createElement('button')
+    
+    li.textContent = `${myList} `
+    h5.textContent = state.value
+    btn.textContent = 'x'
+
+    li.appendChild(h5)
+    breweryContent.appendChild(li, btn)
+   }
 
 // const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
 
