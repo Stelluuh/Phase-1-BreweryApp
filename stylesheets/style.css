@@ -33,7 +33,7 @@ h5{
    
 }
 
-#list-btn{
+.button{
    padding: 10px;
    border-radius: 15px;
    background-color: #FCF8EC;
@@ -43,15 +43,6 @@ h5{
    margin: auto;
 }
 
-#submit-btn{
-   padding: 10px;
-   border-radius: 15px;
-   background-color: #FCF8EC;
-   font-size: 1rem;
-   color: black;  
-   letter-spacing: .35rem;
-   margin: auto;
-}
 
 .top-container{
    color: #fff;
@@ -70,10 +61,14 @@ h5{
    gap: 0.25rem;
 }
 
+.content{
+   min-height: 500px;
+}
+
 .bottom-container {
    text-align: center;
    gap: 0.25rem;
-   position: fixed;
+   position: relative;
    height: 50px;
    bottom: 0px;
    left: 0px;
