@@ -26,6 +26,7 @@ const breweryContent = document.querySelector('.content')
 // const list = document.querySelectorAll('li')
 const searchInput = document.querySelector('#search-input')
 const form = document.querySelector('form')
+const formContent = document.querySelector('#form-content')
 
 
 
@@ -145,10 +146,9 @@ form.addEventListener('submit', (e) => {
 })
 
 function handleMyList(myList) {
-    console.log(myList)
     let p = document.createElement('p')
     p.textContent = myList
-    console.log(p)
+    formContent.appendChild(p)
 }
 
 // const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
