@@ -105,6 +105,7 @@ function toggleBreweries(e) {
    }
 }
 
+
 //I want to be able to loop through our breweries and hide the ones that dont match the state that is typed into the input.
 // function searchByState(e) {
 //    e.preventDefault()
@@ -140,8 +141,15 @@ breweryButton.addEventListener('mouseout', (e) => {
 
 form.addEventListener('submit', (e) => {
    e.preventDefault()
-   console.log(e.target.my_list.value)
+   handleMyList(e.target.my_list.value)
 })
+
+function handleMyList(myList) {
+    console.log(myList)
+    let p = document.createElement('p')
+    p.textContent = myList
+    console.log(p)
+}
 
 // const filterBreweries = () => searchInput.addEventListener('input', searchByState) // this is going to run anytime we change anything inside the search bar, such as typing.
 
