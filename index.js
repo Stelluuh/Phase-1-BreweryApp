@@ -34,6 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 breweryButton.addEventListener('click', toggleBreweries)
 
+form.addEventListener('submit', (e) => {
+   e.preventDefault()
+   let textValue = e.target.new_brewery.value
+   createNewCard(textValue)
+});
 
 allButtons.forEach(element => element.addEventListener('mouseover', (e) => {
    // console.log(e.target)
@@ -43,68 +48,6 @@ allButtons.forEach(element => element.addEventListener('mouseover', (e) => {
 allButtons.forEach(element => element.addEventListener('mouseout', (e) => {
    e.target.setAttribute('style', 'background-color: #FCF8EC')
 }))
-
-form.addEventListener('submit', (e) => {
-   e.preventDefault()
-   let textValue = e.target.new_brewery.value
-   createNewCard(textValue)
-});
-
-
-/*------------------FUNCTIONS------------------*/
-
-//1. function that when the page opens, it has all the html needed on the homepage.
-function initializeHomePage() {
-   const h1 = document.createElement('h1')
-   const h4 = document.createElement('h4')
-   
-   h1.innerHTML = 'Brewery Bound'
-   h4.innerHTML = 'Journey with us across the United States and check out our favorite small and independent breweries.'
-   h1.style.marginBottom = "25px"
-   h4.style.marginBottom = "25px"
-
-   topContainer.append(h1, h4)
-   bottomContainer.style.display = 'none'
-}
-
-//2. create a copy of the API data
-function fetchandCopyData() {
-   fetch('https://api.openbrewerydb.org/breweries')
-      .then(resp => (resp.json()))
-      .then(data => {
-         // console.log(data)
-         data.map(element => getData.push({
-            name: element.name,
-            state: element.state
-         })
-         )
-      })
-}
-
-function displayBreweryList() {
-   for (item of getData) {
-      const card = document.createElement('div')
-      const li = document.createElement('li')
-      li.innerText = item.name
-
-      const h5 = document.createElement('h5')
-      h5.innerText = `State: ${item.state}`
-
-      const h6 = document.createElement('h6')
-      h6.innerText = `phone#: ${item.phone}`
-
-      li.appendChild(h5, h6)
-      card.appendChild(li)
-      breweryContent.appendChild(card)
-
-      bottomContainer.style.display = 'block' //shows bottom container when 'show breweries' bottom is clicked to show all breweries
-   }
-}
-
-function removeBreweryList() {
-   breweryContent.innerHTML = ""
-   bottomContainer.style.display = 'none' //hides bottom container when the 'show breweries' button is clicked to hide all breweries
-}
 
 /*------------------EVENT HANDLERS------------------*/
 //this takes in an event (because the event listener below calls this function)
@@ -143,3 +86,56 @@ function createNewCard(addBrewery) {
    getData.push(newObj)
    console.log(getData)
 }
+
+/*------------------FUNCTIONS------------------*/
+
+//1. function that when the page opens, it has all the html needed on the homepage.
+function initializeHomePage() {
+   const h1 = document.createElement('h1')
+   const h4 = document.createElement('h4')
+   
+   h1.innerHTML = 'Brewery Bound'
+   h4.innerHTML = 'Journey with us across the United States and check out our favorite small and independent breweries.'
+   h1.style.marginBottom = "25px"
+   h4.style.marginBottom = "25px"
+
+   topContainer.append(h1, h4)
+   bottomContainer.style.display = 'none'
+}
+
+//2. create a copy of the API data
+function fetchandCopyData() {
+   fetch('https://api.openbrewerydb.org/breweries')
+      .then(resp => (resp.json()))
+      .then(data => {
+         // console.log(data)
+         data.map(element => getData.push({
+            name: element.name,
+            state: element.state
+         })
+         )
+      })
+}
+
+function displayBreweryList() {
+   for (item of getData) {
+      const card = document.createElement('div')
+      const li = document.createElement('li')
+      li.innerText = item.name //Brewery Name
+       
+      const h5 = document.createElement('h5')
+      h5.innerText = `State: ${item.state}` //State
+
+      li.appendChild(h5)
+      card.appendChild(li)
+      breweryContent.appendChild(card)
+
+      bottomContainer.style.display = 'block' //shows bottom container when 'show breweries' bottom is clicked to show all breweries
+   }
+}
+
+function removeBreweryList() {
+   breweryContent.innerHTML = ""
+   bottomContainer.style.display = 'none' //hides bottom container when the 'show breweries' button is clicked to hide all breweries
+}
+

@@ -1,21 +1,16 @@
 # Idea
- I want an application that allows us me to select a state that lists all the breweries available in that state. I want to be able to add a function that likes the brewery and with each like will bring it to a section that shows all your favorite breweries.
+ I want an application that allows us me to click on a button that will display a list of breweries available and the state it is located in. I want to be able to add a function that allows users to add a new brewery and its location to the list.
 
 # Features
-* Brewery API: https://api.openbrewerydb.org/breweries (fetch)
-* Create Copy of API (DOMContentLoaded)
-* Hover over buttons to show contact information (mouseover)
-* Add breweries to the list (Submit - form)
+* Change color of buttons when mouse hoves over.
+* Show Breweries Button
+* Add new breweries to the list (Submit - form)
 
 # MVP - Minimum Viable Product 
-* Button that lists all breweries by name(DOMContentLoaded, 'click')
+* Breweries - API (DOMContentLoaded)
+* Button that lists all breweries by name('click')
 * Hover over Breweries to show brewery info ('mouseover')
-
-
-
-
-# Extra
-* Create a randomizer that chooses a brewery for you to try
+* Add New Brewery ('Submit')
 
 # Events
 3 question rule:

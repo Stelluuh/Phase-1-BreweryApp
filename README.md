@@ -12,10 +12,10 @@ This web application allows users to see different breweries around the United S
    open index.html in the browser
 
 ### Resources
-1. used to copy list of states for select, option feature: https://www.hscripts.com/scripts/JavaScript/option/usa-states.php
-2. Background image: https://unsplash.com/s/photos/craft-beer/josh-olalde--Ygu9Qx309s-unsplash
-3. How to hide and unhide and html element: https://stackoverflow.com/questions/56111480/how-can-i-hide-a-div-until-a-button-is-clicked
-4. Beer Emoji: https://emojiterra.com/beer-mug/
+1. Background image: https://unsplash.com/s/photos/craft-beer/josh-olalde--Ygu9Qx309s-unsplash
+2. Beer Emoji: https://emojiterra.com/beer-mug/
+3. HTML list of US States https://www.hscripts.com/scripts/JavaScript/option/usa-states.php
+4. How to hide and unhide and html element: https://stackoverflow.com/questions/56111480/how-can-i-hide-a-div-until-a-button-is-clicked
 5. Flatiron Form Video: https://learning.flatironschool.com/courses/5300/pages/video-forms?module_item_id=397076
 6. Flatiron Phase-1 notes: https://learning.flatironschool.com/courses/5300
 
