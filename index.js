@@ -17,12 +17,39 @@ let getData = [] //copy of API data
 
 /*------------------NODES------------------*/
 const topContainer = document.querySelector('.top-container')
-const breweryButton = document.querySelector('#list-btn')
-const breweryContent = document.querySelector('.content')
 const bottomContainer = document.querySelector('.bottom-container')
+const breweryButton = document.querySelector('#list-btn')
+const allButtons = document.querySelectorAll('.button')
+const breweryContent = document.querySelector('.content')
 const form = document.querySelector('form')
 const state = document.querySelector('#state')
-const allButtons = document.querySelectorAll('.button')
+
+/*------------------EVENT LISTENERS------------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+   initializeHomePage(); //loads page with all html content
+   fetchandCopyData(); //copy of API data
+   // allBreweries(); //function with event listener 'click' that shows a list of breweries
+})
+
+breweryButton.addEventListener('click', toggleBreweries)
+
+
+allButtons.forEach(element => element.addEventListener('mouseover', (e) => {
+   // console.log(e.target)
+   e.target.setAttribute('style', 'background-color: #EC994B')
+}))
+
+allButtons.forEach(element => element.addEventListener('mouseout', (e) => {
+   e.target.setAttribute('style', 'background-color: #FCF8EC')
+}))
+
+form.addEventListener('submit', (e) => {
+   e.preventDefault()
+   let textValue = e.target.new_brewery.value
+   createNewCard(textValue)
+});
+
 
 /*------------------FUNCTIONS------------------*/
 
@@ -94,7 +121,7 @@ function toggleBreweries(e) {
    }
 }
 
-function handleMyList(addBrewery) {
+function createNewCard(addBrewery) {
    //Takes new brewery and adds it to the list
    let li = document.createElement('li')
    let h5 = document.createElement('h5')
@@ -116,30 +143,3 @@ function handleMyList(addBrewery) {
    getData.push(newObj)
    console.log(getData)
 }
-
-/*------------------EVENT LISTENERS------------------*/
-
-document.addEventListener('DOMContentLoaded', () => {
-   initializeHomePage(); //loads page with all html content
-   fetchandCopyData(); //copy of API data
-   // allBreweries(); //function with event listener 'click' that shows a list of breweries
-})
-
-breweryButton.addEventListener('click', toggleBreweries)
-
-
-allButtons.forEach(element => element.addEventListener('mouseover', (e) => {
-   // console.log(e.target)
-   e.target.setAttribute('style', 'background-color: #EC994B')
-}))
-
-allButtons.forEach(element => element.addEventListener('mouseout', (e) => {
-   e.target.setAttribute('style', 'background-color: #FCF8EC')
-}))
-
-form.addEventListener('submit', (e) => {
-   e.preventDefault()
-   let textValue = e.target.new_brewery.value
-   handleMyList(textValue)
-});
-
