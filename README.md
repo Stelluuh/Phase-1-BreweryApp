@@ -1,7 +1,7 @@
-# Brewery Bound
+# Title: Brewery Bound
 
 # Overview
-This web application allows users to see different breweries around the United States. The page has a feature that allows users to click a button that shows the list. After the button is clicked, the user has the option to add a brewery by Name and Location by State to the list. There is a hover feature on all buttons on the page that shows that when a mouse is over, it changes color.  
+This web application allows users to see different breweries around the United States. The page has a feature that allows users to click a button that shows the list. After the button is clicked, the user has the option to add a brewery by Name and Location by State to the list. There is a hover feature on all buttons on the page that shows that when a mouse is over it, the button changes color.  
 
 # Requirements
 * have json-server installed

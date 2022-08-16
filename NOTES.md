@@ -3,9 +3,8 @@
 
 # Features
 * Brewery API: https://api.openbrewerydb.org/breweries (fetch)
-* Search by typing Brewery Name or Search by State (DOMContentLoaded, Submit Form)
+* Create Copy of API (DOMContentLoaded)
 * Hover over buttons to show contact information (mouseover)
-* Add to favorites (Click - button)
 * Add breweries to the list (Submit - form)
 
 # MVP - Minimum Viable Product 

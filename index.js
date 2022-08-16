@@ -1,9 +1,8 @@
 /*
 GOAL: 3 Event Listeners:
-1. mouseover that changes color of Breweries
-2. mouseout that changes back to original color
-3a. click event on breweries to show information
-3b. Click event to toggle list of breweries: google "how to use toggle with a click event in javascript"
+1a. mouseover that changes color of Breweries
+1b. mouseout that changes back to original color
+2. Click event to toggle list of breweries: google "how to use toggle with a click event in javascript"
 3. submit event to add a new brewery to the list
 
 ASSESSMENT:
@@ -14,10 +13,7 @@ ASSESSMENT:
 /*
 
 /*------------------CREATE VARIABLES------------------*/
-const h1 = document.createElement('h1')
-const h4 = document.createElement('h4')
 let getData = [] //copy of API data
-let filterBrewery = []
 
 /*------------------NODES------------------*/
 const topContainer = document.querySelector('.top-container')
@@ -32,11 +28,14 @@ const allButtons = document.querySelectorAll('.button')
 
 //1. function that when the page opens, it has all the html needed on the homepage.
 function initializeHomePage() {
+   const h1 = document.createElement('h1')
+   const h4 = document.createElement('h4')
+   
    h1.innerHTML = 'Brewery Bound'
-   h4.innerHTML = 'Journey with us across the United States and check out our favorite small and independent breweries.' 
+   h4.innerHTML = 'Journey with us across the United States and check out our favorite small and independent breweries.'
    h1.style.marginBottom = "25px"
    h4.style.marginBottom = "25px"
-   
+
    topContainer.append(h1, h4)
    bottomContainer.style.display = 'none'
 }
@@ -55,31 +54,13 @@ function fetchandCopyData() {
       })
 }
 
-
-
-//Function that displays brewery NAME and STATE
-function toggleBreweries(e) {
-   e.preventDefault()
-   // console.log(e)
-   if (breweryContent.hasChildNodes()) {
-      removeBreweryList()
-   } else {
-      displayBreweryList()
-      // handleMyList()
-   }
-}
-
 function displayBreweryList() {
    for (item of getData) {
       const card = document.createElement('div')
-      // div.className = `${item.name}`
-      
       const li = document.createElement('li')
-      // li.className = 'list'
       li.innerText = item.name
-      
+
       const h5 = document.createElement('h5')
-      // h5.className = 'state-list'
       h5.innerText = `State: ${item.state}`
 
       const h6 = document.createElement('h6')
@@ -101,6 +82,18 @@ function removeBreweryList() {
 /*------------------EVENT HANDLERS------------------*/
 //this takes in an event (because the event listener below calls this function)
 
+//Function that displays brewery NAME and STATE
+function toggleBreweries(e) {
+   e.preventDefault()
+   // console.log(e)
+   if (breweryContent.hasChildNodes()) {
+      removeBreweryList()
+   } else {
+      displayBreweryList()
+      // handleMyList()
+   }
+}
+
 function handleMyList(addBrewery) {
    //Takes new brewery and adds it to the list
    let li = document.createElement('li')
@@ -108,37 +101,28 @@ function handleMyList(addBrewery) {
    let div = document.createElement('div')
    li.textContent = `${addBrewery} `
    h5.textContent = `State: ${state.value}`
-   
+
    li.appendChild(h5)
    div.appendChild(li)
-   
+
    breweryContent.appendChild(div)
-   
+
    //Create a new object and add it to the copied API so that it doesn't refresh the page
    let newObj = {
       name: addBrewery,
       state: state.value
    }
-   console.log('new obj: ', newObj)
+   
    getData.push(newObj)
    console.log(getData)
-   
 }
 
-/*give this a new function that creates a new object and takes in the new information and add it to getData
-obj {
-   name: ,
-   state: 
-  }
-}
-*/
 /*------------------EVENT LISTENERS------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
    initializeHomePage(); //loads page with all html content
    fetchandCopyData(); //copy of API data
    // allBreweries(); //function with event listener 'click' that shows a list of breweries
-
 })
 
 breweryButton.addEventListener('click', toggleBreweries)
