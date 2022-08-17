@@ -21,5 +21,5 @@
 
 - Cause: Click Event
 
-- Effect: Change the header to brewery list and list out the meals inside of an unordered list as (li)'s
+- Effect: Change the header to brewery list and list out the breweries as (li)'s
 
