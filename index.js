@@ -134,6 +134,7 @@ function displayBreweryList() {
    }
 }
 
+
 function removeBreweryList() {
    breweryContent.innerHTML = ""
    bottomContainer.style.display = 'none' //hides bottom container when the 'show breweries' button is clicked to hide all breweries
