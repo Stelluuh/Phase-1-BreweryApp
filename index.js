@@ -52,20 +52,18 @@ allButtons.forEach(element => element.addEventListener('mouseout', (e) => {
 /*------------------EVENT HANDLERS------------------*/
 //this takes in an event (because the event listener below calls this function)
 
-//Function that displays brewery NAME and STATE
+//Function that shows a list of breweries
 function toggleBreweries(e) {
    e.preventDefault()
-   // console.log(e)
    if (breweryContent.hasChildNodes()) {
       removeBreweryList()
    } else {
       displayBreweryList()
-      // handleMyList()
    }
 }
 
+//Takes new brewery and adds it to the list
 function createNewCard(addBrewery) {
-   //Takes new brewery and adds it to the list
    let li = document.createElement('li')
    let h5 = document.createElement('h5')
    let div = document.createElement('div')
@@ -78,13 +76,14 @@ function createNewCard(addBrewery) {
    breweryContent.appendChild(div)
 
    //Create a new object and add it to the copied API so that it doesn't refresh the page
+   
+   // TRY doing a FETCH POST here.
    let newObj = {
       name: addBrewery,
       state: state.value
    }
    
    getData.push(newObj)
-   console.log(getData)
 }
 
 /*------------------FUNCTIONS------------------*/
@@ -100,6 +99,7 @@ function initializeHomePage() {
    h4.style.marginBottom = "25px"
 
    topContainer.append(h1, h4)
+   
    bottomContainer.style.display = 'none'
 }
 
@@ -109,7 +109,7 @@ function fetchandCopyData() {
       .then(resp => (resp.json()))
       .then(data => {
          // console.log(data)
-         data.map(element => getData.push({
+         data.map(element => getData.push({ //more use of data
             name: element.name,
             state: element.state
          })
@@ -133,7 +133,6 @@ function displayBreweryList() {
       bottomContainer.style.display = 'block' //shows bottom container when 'show breweries' bottom is clicked to show all breweries
    }
 }
-
 
 function removeBreweryList() {
    breweryContent.innerHTML = ""
