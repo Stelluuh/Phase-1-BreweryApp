@@ -131,11 +131,15 @@ function displayBreweryList() {
       breweryContent.appendChild(card)
 
       bottomContainer.style.display = 'block' //shows bottom container when 'show breweries' bottom is clicked to show all breweries
+      breweryButton.innerHTML = "Hide Breweries"
    }
 }
 
 function removeBreweryList() {
    breweryContent.innerHTML = ""
    bottomContainer.style.display = 'none' //hides bottom container when the 'show breweries' button is clicked to hide all breweries
+   breweryButton.innerHTML = "Show Breweries"
 }
+
+
 
