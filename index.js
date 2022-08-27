@@ -1,5 +1,6 @@
 /*------------------CREATE VARIABLES------------------*/
 let getData = [] 
+console.log(getData)
 
 /*------------------NODES------------------*/
 const topContainer = document.querySelector('.top-container')
@@ -32,6 +33,7 @@ form.addEventListener('submit', (e) => {
    console.log('e.target: ', e.target)
    let textValue = e.target.new_brewery.value
    createNewCard(textValue)
+   form.reset()
 });
 
 
