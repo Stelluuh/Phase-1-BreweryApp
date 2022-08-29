@@ -52,11 +52,11 @@ function createNewCard(addBrewery) {
 
    breweryContent.appendChild(div)
 
-   let newObj = {
+   let newCard = {
       name: addBrewery,
       state: state.value
    }
-   allBreweries.push(newObj)
+   allBreweries.push(newCard)
 }
 
 function displayBreweryList() {
