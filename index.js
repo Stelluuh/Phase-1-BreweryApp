@@ -1,6 +1,8 @@
 /*------------------CREATE VARIABLES------------------*/
-let getData = [] 
-console.log(getData)
+// alert('It works!')
+let allBreweries = [] 
+console.log(allBreweries)
+
 
 /*------------------NODES------------------*/
 const topContainer = document.querySelector('.top-container')
@@ -30,7 +32,6 @@ breweryButton.addEventListener('click', () => breweryContent.hasChildNodes() ? r
 
 form.addEventListener('submit', (e) => {
    e.preventDefault()
-   console.log('e.target: ', e.target)
    let textValue = e.target.new_brewery.value
    createNewCard(textValue)
    form.reset()
@@ -43,7 +44,7 @@ function createNewCard(addBrewery) {
    let li = document.createElement('li')
    let h5 = document.createElement('h5')
    let div = document.createElement('div')
-   li.textContent = `${addBrewery} `
+   li.textContent = addBrewery
    h5.textContent = `State: ${state.value}`
 
    li.appendChild(h5)
@@ -55,11 +56,11 @@ function createNewCard(addBrewery) {
       name: addBrewery,
       state: state.value
    }
-   getData.push(newObj)
+   allBreweries.push(newObj)
 }
 
 function displayBreweryList() {
-   for (let brewery of getData) {
+   for (let brewery of allBreweries) {
       const card = document.createElement('div')
       const li = document.createElement('li')
       li.innerText = brewery.name
@@ -101,7 +102,7 @@ function fetchandCopyData() {
    fetch('https://api.openbrewerydb.org/breweries')
       .then(resp => (resp.json()))
       .then(data => {
-         data.map(element => getData.push({ 
+         data.map(element => allBreweries.push({ 
             name: element.name,
             state: element.state
             })
