@@ -41,7 +41,7 @@ form.addEventListener('submit', (e) => {
 
 /*------------------FUNCTIONS ------------------*/
 
-function initializeHomePage() {
+const initializeHomePage = () => {
    const h1 = document.createElement('h1')
    const h4 = document.createElement('h4')
    
@@ -55,7 +55,7 @@ function initializeHomePage() {
    bottomContainer.style.display = 'none'
 }
 
-function fetchandCopyData() {
+const fetchandCopyData = () => {
    fetch('https://api.openbrewerydb.org/breweries')
       .then(resp => (resp.json()))
       .then(data => {
@@ -68,7 +68,7 @@ function fetchandCopyData() {
 }
 
 
-function displayBreweryList() {
+const displayBreweryList = () => {
    for (let brewery of allBreweries) {
       const card = document.createElement('div')
       const li = document.createElement('li')
@@ -86,13 +86,13 @@ function displayBreweryList() {
    }
 }
 
-function removeBreweryList() {
+const removeBreweryList = () => {
    breweryContent.innerHTML = ""
    bottomContainer.style.display = 'none' 
    breweryButton.innerText = "Show Breweries"
 }
 
-function createNewCard(addBrewery) {  
+const createNewCard = (addBrewery) => {  
    let li = document.createElement('li')
    let h5 = document.createElement('h5')
    let div = document.createElement('div')
